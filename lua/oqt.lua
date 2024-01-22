@@ -213,31 +213,31 @@ end
 
 --- setup default keymaps for oqt
 function oqt.setup_keymaps()
-	vim.keymap.set("n", "<leader>tn", function()
+	vim.keymap.set("n", "<leader>rn", function()
 		oqt.prompt_new_task()
-	end, { desc = "[T]asks [N]ew - harpoon overseer quick tasks" })
+	end, { desc = "[R]uner [N]ew " })
 
-	vim.keymap.set("n", "<leader>tv", function()
+	vim.keymap.set("n", "<leader>rv", function()
 		harpoon.ui:toggle_quick_menu(harpoon:list("oqt"))
-	end, { desc = "[T]asks [V]iew - harpoon overseer quick tasks" })
+	end, { desc = "[R]uner [V]iew " })
 
-	vim.keymap.set("n", "<leader>tl", function()
+	vim.keymap.set("n", "<leader>rl", function()
 		oqt.float_last_task()
-	end, { desc = "last [T]ask output [L]ast - harpoon overseer quick tasks" })
+	end, { desc = "[R]uner output [L]ast " })
 
-	vim.keymap.set("n", "<leader>tr", function()
+	vim.keymap.set("n", "<leader>rr", function()
 		oqt.restart_last_task()
-	end, { desc = "Last [T]ask [R]estart - harpoon overseer quick tasks" })
+	end, { desc = "Last [R]uner [R]estart " })
 
-	-- set up numeric keymaps: <leader>t1-9 for running tasks
+	-- set up numeric keymaps: <leader>r1-9 for running tasks
 	for i = 1, 9 do
-		vim.keymap.set("n", "<leader>t" .. tostring(i), function()
+		vim.keymap.set("n", "<leader>r" .. tostring(i), function()
 			harpoon:list("oqt"):select(i)
-		end, { desc = "[T]asks run - harpoon overseer quick tasks" .. tostring(i) })
+		end, { desc = "[R]uner run " .. tostring(i) })
 
-		vim.keymap.set("n", "<leader>to" .. tostring(i), function()
+		vim.keymap.set("n", "<leader>ro" .. tostring(i), function()
 			oqt.float_task(i)
-		end, { desc = "[T]asks [O]utput - harpoon overseer quick tasks" .. tostring(i) })
+		end, { desc = "[R]uner [O]utput " .. tostring(i) })
 	end
 end
 
